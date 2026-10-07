@@ -23,27 +23,21 @@ buckets = 500000000
 location = "maximalIndependentSet"
 algorithm = "incrementalMIS"
 input = "${REPO_ROOT}/inputs/Hyperlink2012-Hosts.sym.ag"
-# input = "${REPO_ROOT}/inputs/USA-road-d-USA.sym.wag"
 
 [benchmarks.matching]
 location = "maximalMatching"
 algorithm = "incrementalMatching"
 input = "${REPO_ROOT}/inputs/rmat-50M.ea"
-# input = "${REPO_ROOT}/inputs/USA-road-d-USA.sym.wag"
 
 [benchmarks.ST]
 location = "spanningForest"
 algorithm = "incrementalST"
-input = "${REPO_ROOT}/inputs/rmat-50M.ea"
-# input = "${REPO_ROOT}/inputs/Hyperlink2012-Hosts.sym.ag"
-# input = "${REPO_ROOT}/inputs/USA-road-d-USA.sym.wag"
+input = "${REPO_ROOT}/inputs/rmat-20M.ea"
 
-# Doesn't appear to be a 1-to-1 algorithm match between pbbs and rpb
-# [benchmarks.msf]
-# location = "minSpanningForest"
-# algorithm = ""
-# input = "${REPO_ROOT}/inputs/rmat-20M.wea"
-# # input = "${REPO_ROOT}/inputs/USA-road-d-USA.sym.wag"
+[benchmarks.MST]
+location = "minSpanningForest"
+algorithm = "parallelKruskal"
+input = "${REPO_ROOT}/inputs/rmat-20M.wea"
 
 [benchmarks.SA]
 location = "suffixArray"
@@ -60,9 +54,7 @@ location = "longestRepeatedSubstring"
 algorithm = "doubling"
 input = "${REPO_ROOT}/inputs/wikipedia250M.txt"
 
-# Doesn't appear to be a 1-to-1 algorithm match between pbbs and rpb
-# [benchmarks.bfs]
-# location = "breadthFirstSearch"
-# algorithm = ""
-# input = "${REPO_ROOT}/inputs/Hyperlink2012-Hosts.sym.ag"
-# # input = "${REPO_ROOT}/inputs/USA-road-d-USA.sym.wag"
+[benchmarks.refine]
+location = "delaunayRefine"
+algorithm = "incrementalRefine"
+input = "${REPO_ROOT}/inputs/dt_k2M"
