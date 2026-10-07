@@ -9,7 +9,7 @@ CCFLAGS = -mcx16 -O3 -std=c++17
 CLFLAGS = -ldl $(JEMALLOC)
 
 OMPFLAGS = -DOPENMP -fopenmp
-CILKFLAGS = -DCILK -fcilkplus
+CILKFLAGS = -DCILK -fopencilk
 PBBFLAGS = -DPARLAY_OPENMP -fopenmp -pthread
 
 ifdef OPENMP
@@ -18,7 +18,7 @@ CFLAGS = $(OMPFLAGS) $(CCFLAGS)
 LFLAGS = $(OMPFLAGS) $(LCFLAGS)
 
 else ifdef CILK
-CC = g++
+CC = clang-19
 CFLAGS = $(CILKFLAGS) $(CCFLAGS)
 LFLAGS = $(CILKFLAGS) $(CLFLAGS)
 
